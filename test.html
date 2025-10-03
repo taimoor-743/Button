@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Info Button Tooltip</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+    .info-btn {
+      background: #2196f3;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .info-btn:hover {
+      background: #1976d2;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+    .modal-content ul {
+      padding-left: 20px;
+    }
+    .close-btn {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #999;
+    }
+    .close-btn:hover {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Info button -->
+  <button class="info-btn" onclick="openModal()">i</button>
+
+  <!-- Modal -->
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Scorecard Status Information</h2>
+      <ul>
+        <li><strong style="color:#E53935;">Red (≤ 50%)</strong> — Critical performance. May indicate data issues, low engagement, or gaps in process.</li>
+        <li><strong style="color:#FBC02D;">Yellow (50%–70%)</strong> — Moderate performance. Monitor closely, optimize weak areas, and review data sources.</li>
+        <li><strong style="color:#43A047;">Green (> 70%)</strong> — Healthy performance. Maintain consistency and scale successful strategies.</li>
+      </ul>
+      <h3>Performance History</h3>
+      <p>[Placeholder: You can describe recent performance trends here.]</p>
+      <h3>How to Improve</h3>
+      <p>[Placeholder: Add steps your users can take to move from red/yellow to green.]</p>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("infoModal").style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById("infoModal").style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == document.getElementById("infoModal")) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
